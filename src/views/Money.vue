@@ -1,7 +1,4 @@
-import Money fro
-  components: { nav },m '@/views/Money.vue';
-import Nav from '@/components/Nav.vue';
-import nav from '@/components/nav.vue';
+
 <template>
     <div>
         Money.vue

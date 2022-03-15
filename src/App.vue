@@ -1,7 +1,7 @@
 <template>
   <div> 
     <router-view/> <!-- //将router的路径内容页面显示在这里 -->
-    <hr/>
+    
   
     </div>
 </template>
