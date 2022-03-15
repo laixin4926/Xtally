@@ -7,9 +7,10 @@ import nav from '@/components/nav.vue';
     |
     <router-link to="/statistics">统计</router-link>
     </div>
-</template>
+</template >
 
-<script>
+<script lang="ts">
+    import x from '@/assets/icons/label.svg';
     export default {
         
     }

@@ -1,8 +1,7 @@
 <template>
-    <div>
-        labels.vue
-         <Daohang/>
-    </div>
+    <Layout>
+        <p> Labels</p>
+    </Layout>
     
 </template>
 
@@ -12,6 +11,3 @@ export default{
     }
 </script>
 
-<style lang="scss" scoped>
-
-</style>

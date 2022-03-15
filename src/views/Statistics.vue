@@ -1,8 +1,8 @@
+import Layout from '@/components/Layout.vue';
 <template>
-    <div>
+    <Layout>
         Statistics.vue
-      <Daohang/>
-    </div>
+    </Layout>
     
 </template>
 
@@ -12,7 +12,3 @@ export default{
 
     }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
