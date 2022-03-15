@@ -3,9 +3,11 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
+import Daohang from '@/components/Daohang.vue';
 
 Vue.config.productionTip = false
 
+Vue.component('Daohang',Daohang)
 new Vue({
   router:router,
   store,

@@ -1,12 +1,15 @@
 <template>
     <div>
         Statistics.vue
+      <Daohang/>
     </div>
+    
 </template>
 
-<script>
-    export default {
-        
+<script lang="ts">
+
+export default{
+
     }
 </script>
 

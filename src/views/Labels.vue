@@ -1,12 +1,14 @@
 <template>
     <div>
         labels.vue
+         <Daohang/>
     </div>
+    
 </template>
 
-<script>
-    export default {
-        
+<script lang="ts">
+export default{
+   
     }
 </script>
 

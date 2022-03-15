@@ -2,11 +2,7 @@
   <div> 
     <router-view/> <!-- //将router的路径内容页面显示在这里 -->
     <hr/>
-    <router-link to="/money">记账</router-link>
-    |
-    <router-link to="/labels">标签</router-link>
-    |
-    <router-link to="/statistics">统计</router-link>
+  
     </div>
 </template>
 
