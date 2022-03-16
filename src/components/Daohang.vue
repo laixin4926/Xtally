@@ -39,7 +39,6 @@ nav {
   }
   > .item.selected {
     color: $color-highlight;
-    background: rgb(197, 193, 193);
   }
 }
 </style>
