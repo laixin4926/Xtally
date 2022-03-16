@@ -1,7 +1,7 @@
 <template>
   <Layout class-prefix="layout">
     <NumberPad />
-    <Types />
+    <Types xxx />
     <Notes />
     <Tags />
   </Layout>
@@ -10,12 +10,11 @@
 <script lang="ts">
 import Tags from "@/components/money/Tags.vue";
 import Notes from "@/components/money/Notes.vue";
-import Layout from "@/components/Layout.vue";
 import Types from "@/components/money/Types.vue";
 import NumberPad from "@/components/money/NumberPad.vue";
 
 export default {
-  components: { Tags, Notes, Layout, Types, NumberPad },
+  components: { Tags, Notes, Types, NumberPad },
 };
 </script>
 
