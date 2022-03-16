@@ -14,8 +14,9 @@ import { Component } from "vue-property-decorator";
 
 @Component
 export default class Types extends Vue {
-  type = "-";
+  type = "-"; //data
   selectType(
+    ///methods
     type: string //给type添加了类型
   ) {
     if (type !== "-" && type !== "+") {
