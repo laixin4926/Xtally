@@ -3,12 +3,7 @@ import Notes from '@/components/money/Notes.vue';
   <div>
     <label class="notes">
       <span class="name">备注</span>
-      <input
-        type="text"
-        :value="value"
-        @input="onInput"
-        placeholder="在这里输入备注"
-      />
+      <input type="text" v-model="value" placeholder="在这里输入备注" />
     </label>
   </div>
 </template>
@@ -21,11 +16,6 @@ import { Component } from "vue-property-decorator";
 @Component
 export default class Notes extends Vue {
   value = "";
-
-  onInput(event: KeyboardEvent) {
-    const input = event.target as HTMLInputElement;
-    this.value = input.value;
-  }
 }
 </script>
 
