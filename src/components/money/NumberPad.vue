@@ -22,14 +22,14 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { Component } from "vue-property-decorator";
-
+import { Component, Prop } from "vue-property-decorator";
 @Component
 export default class NumberPad extends Vue {
-  output: string = "0";
+  @Prop() readonly value!: number;
+  output = this.value.toString();
   inputContent(event: MouseEvent) {
-    const button = event.target as HTMLButtonElement; //强制指定类型
-    const input = button.textContent as string;
+    const button = event.target as HTMLButtonElement;
+    const input = button.textContent!;
     if (this.output.length === 16) {
       return;
     }
@@ -44,7 +44,6 @@ export default class NumberPad extends Vue {
     if (this.output.indexOf(".") >= 0 && input === ".") {
       return;
     }
-
     this.output += input;
   }
   remove() {
@@ -57,7 +56,11 @@ export default class NumberPad extends Vue {
   clear() {
     this.output = "0";
   }
-  ok() {}
+  ok() {
+    this.$emit("update:value", this.output);
+    this.$emit("submit", this.output);
+    this.output = "0";
+  }
 }
 </script>
 
