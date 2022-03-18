@@ -1,0 +1,27 @@
+[33mc3fa5a8[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{0}: commit: 改造Node.vue使其成为通用组件
+[33mbaae188[m HEAD@{1}: commit: 新增EditLabel组件
+[33macac2d8[m HEAD@{2}: commit: 将tag的string改为{id，name}
+[33md0022ce[m HEAD@{3}: commit: label的html和css，新建标签
+[33mc1b6eb8[m HEAD@{4}: commit: RecordItem保存提交来数据、简单封装
+[33mf4be0ae[m HEAD@{5}: commit: 可以得到四个组件用户提交的参数
+[33mce291f4[m HEAD@{6}: commit: 完成四个组件
+[33m48b24f2[m HEAD@{7}: commit: 使用v-model代替：value和@input绑定
+[33ma041f77[m HEAD@{8}: commit: 完成notes组件
+[33m9f4adea[m HEAD@{9}: commit: 基本完成numberPad组件
+[33m76555a7[m HEAD@{10}: commit: ts切换收入支出按钮
+[33m38ec74a[m HEAD@{11}: commit: money四个界面的布局css
+[33m1b7a353[m HEAD@{12}: commit: money分成四个组件，设置了第一个组件的css
+[33m6154ff4[m HEAD@{13}: commit: 添加了全局样式和全局变量
+[33m7573987[m HEAD@{14}: commit: 修改了导航的顺序，加了money的html，修改了money的icon样式
+[33m4be11b2[m HEAD@{15}: commit: 修复图标bug 加了正确的meta
+[33madd2fa9[m HEAD@{16}: reset: moving to add2fa9
+[33mc7ac8b2[m HEAD@{17}: reset: moving to c7ac8b2
+[33madd2fa9[m HEAD@{18}: reset: moving to add2fa9
+[33m1f144b3[m HEAD@{19}: reset: moving to 1f144b3
+[33madd2fa9[m HEAD@{20}: commit: 添加icon样式
+[33m56640bd[m HEAD@{21}: commit: 创建icon
+[33mc7ac8b2[m HEAD@{22}: commit: 添加了Layout
+[33mc020d28[m HEAD@{23}: commit: money初步页面布局
+[33me3839b7[m HEAD@{24}: commit: 添加了404页面
+[33m448bd31[m HEAD@{25}: commit: 修改导航位置，引入全局变量
+[33m1f144b3[m HEAD@{26}: commit (initial): 创建了三个页面，可以导航
