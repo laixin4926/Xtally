@@ -19,14 +19,15 @@ import Types from "@/components/money/Types.vue";
 import NumberPad from "@/components/money/NumberPad.vue";
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
+import store from "@/store/index2";
 
 @Component({
   components: { Tags, FormItem, Types, NumberPad },
 })
 export default class Money extends Vue {
-  tags = window.tagList;
+  tags = store.tagList;
 
-  recordList = window.recordList;
+  recordList = store.recordList;
   record: RecordItem = { tags: [], note: "", type: "-", amount: 0 };
 
   onUpdateTags(value: string[]) {
@@ -37,7 +38,7 @@ export default class Money extends Vue {
   }
 
   saveRecord() {
-    window.createRecord(this.record);
+    store.createRecord(this.record);
   }
 }
 </script>
