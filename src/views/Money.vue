@@ -46,10 +46,6 @@ export default class Money extends Vue {
     record2.createdAt = new Date();
     this.recordList.push(record2);
   }
-  @Watch("recordList")
-  onRecordListChange() {
-    recordListModel.save(this.recordList);
-  }
 }
 </script>
 

@@ -1,6 +1,5 @@
-import Tags from '@/components/money/Tags.vue';
 <template>
-  <div class="Tags">
+  <div class="tags">
     <div class="new">
       <button @click="create">新增标签</button>
     </div>
@@ -9,9 +8,9 @@ import Tags from '@/components/money/Tags.vue';
         v-for="tag in dataSource"
         :key="tag.id"
         :class="{ selected: selectedTags.indexOf(tag) >= 0 }"
-        @click="toggle(tag.name)"
+        @click="toggle(tag)"
       >
-        {{ tag }}
+        {{ tag.name }}
       </li>
     </ul>
   </div>
@@ -46,7 +45,7 @@ export default class Tags extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.Tags {
+.tags {
   font-size: 14px;
   padding: 16px;
   flex-grow: 1;

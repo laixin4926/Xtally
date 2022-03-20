@@ -27,7 +27,7 @@ import Layout from "@/components/Layout.vue";
 import tagListModel from "@/models/tagListModel";
 import Icon from "@/components/Icon.vue";
 import FormItem from "../components/money/FormItem.vue";
-import Button from "../components/money/Button.vue";
+import Button from "../components/Button.vue";
 
 @Component({
   components: { FormItem, Button },
@@ -52,7 +52,11 @@ export default class EditLabel extends Vue {
   }
   remove() {
     if (this.tag) {
-      tagListModel.remove(this.tag.id);
+      if (tagListModel.remove(this.tag.id)) {
+        this.$router.back();
+      } else {
+        window.alert;
+      }
     }
   }
   goBack() {
