@@ -27,4 +27,6 @@ interface Window {
     id: string,
     name: string
   ) => "success" | "not found" | "duplicated";
+  recordList: RecordItem[];
+  createRecord: (record: RecordItem) => void;
 }
