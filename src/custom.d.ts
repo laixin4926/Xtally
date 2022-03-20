@@ -22,6 +22,7 @@ interface Window {
   tagList: Tag[];
   createTag: (name: string) => void;
   removeTag: (id: string) => boolean;
+  findTag: (id: string) => Tag;
   updateTag: (
     id: string,
     name: string
