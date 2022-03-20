@@ -1,5 +1,8 @@
 module.exports = {
   "globals": { "RecordItem": true },
+  "globals": { "tagList": true },
+  "globals": { "TagListModel": true },
+  "globals": { "Tag": true },
   root: true,
   env: {
     node: true
