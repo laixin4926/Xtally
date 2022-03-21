@@ -9,7 +9,6 @@
       @update:value="onUpdateNotes"
     />
     <Tags />
-    {{ count }}
   </Layout>
 </template>@/components/money/FormItem.vue
 
