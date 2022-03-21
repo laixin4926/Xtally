@@ -1,4 +1,3 @@
-
 <template>
   <Layout>
     <div class="navBar">
@@ -8,9 +7,9 @@
     </div>
     <div class="form-wrapper">
       <FormItem
-        :value="tag.name"
+        :value="currentTag.name"
         @update:value="update"
-        filed-name="标签名"
+        field-name="标签名"
         placeholder="请输入标签名"
       />
     </div>
@@ -23,38 +22,35 @@
 <script lang="ts">
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
+import Button from "@/components/Button.vue";
 import FormItem from "../components/money/FormItem.vue";
-import Button from "../components/Button.vue";
-
 @Component({
-  components: { FormItem, Button },
+  components: { Button, FormItem },
 })
 export default class EditLabel extends Vue {
-  get tag() {
+  get currentTag() {
     return this.$store.state.currentTag;
   }
   created() {
     const id = this.$route.params.id;
+    this.$store.commit("fetchTags");
     this.$store.commit("setCurrentTag", id);
-    if (!this.tag) {
+    if (!this.currentTag) {
       this.$router.replace("/404");
     }
   }
   update(name: string) {
-    if (this.tag) {
-      //TODO
-      //store.updateTag(this.tag.id, name);
+    if (this.currentTag) {
+      this.$store.commit("updateTag", {
+        id: this.currentTag.id,
+        name,
+      });
     }
   }
   remove() {
-    //TODO
-    /*  if (this.tag) {
-      if (store.removeTag(this.tag.id)) {
-        this.$router.back();
-      } else {
-        window.alert;
-      }
-    } */
+    if (this.currentTag) {
+      this.$store.commit("removeTag", this.currentTag.id);
+    }
   }
   goBack() {
     this.$router.back();
@@ -71,7 +67,8 @@ export default class EditLabel extends Vue {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  > .title {
+  }
   > .leftIcon {
     width: 24px;
     height: 24px;
