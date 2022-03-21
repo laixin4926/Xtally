@@ -9,6 +9,7 @@
       @update:value="onUpdateNotes"
     />
     <Tags />
+    {{ count }}
   </Layout>
 </template>@/components/money/FormItem.vue
 
@@ -19,23 +20,28 @@ import Types from "@/components/money/Types.vue";
 import NumberPad from "@/components/money/NumberPad.vue";
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
-import store from "@/store/index2";
+import store from "../store/index";
 
 @Component({
   components: { Tags, FormItem, Types, NumberPad },
+  computed: {
+    count() {
+      return this.$store.state.recordList;
+    },
+  },
 })
 export default class Money extends Vue {
-  tags = store.tagList;
-
-  recordList = store.recordList;
   record: RecordItem = { tags: [], note: "", type: "-", amount: 0 };
 
+  created() {
+    this.$store.commit("fetchRecords");
+  }
   onUpdateNotes(value: string) {
     this.record.note = value;
   }
 
   saveRecord() {
-    store.createRecord(this.record);
+    this.$store.commit("createRecord", this.record);
   }
 }
 </script>
