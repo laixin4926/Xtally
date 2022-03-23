@@ -67,33 +67,32 @@ export default class NumberPad extends Vue {
 
 <style lang="scss" scoped>
 @import "~@/assets/style/helper.scss";
-
 .numberPad {
   .output {
     @extend %clearFix;
     @extend %innerShadow;
     font-size: 36px;
     font-family: Consolas, monospace;
-    padding: 6px;
+    padding: 9px 16px;
     text-align: right;
-    height: 60px;
+    height: 72px;
   }
-  .button {
+  .buttons {
     @extend %clearFix;
     > button {
       width: 25%;
-      height: 58px;
+      height: 64px;
       float: left;
       background: transparent;
       border: none;
       &.ok {
-        height: 58 * 2px;
+        height: 64 * 2px;
         float: right;
       }
       &.zero {
         width: 25 * 2%;
       }
-      $bg: #d9f3f8;
+      $bg: #f2f2f2;
       &:nth-child(1) {
         background: $bg;
       }

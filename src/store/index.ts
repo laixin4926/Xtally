@@ -68,7 +68,7 @@ const store = new Vuex.Store({
     },
     fetchTags(state) {
       state.tagList = JSON.parse(
-        window.localStorage.getItem("recordList") || "[]"
+        window.localStorage.getItem("tagList") || "[]"
       );
     },
     createTag(state, name: string) {
@@ -82,7 +82,7 @@ const store = new Vuex.Store({
       window.alert("添加成功");
     },
     saveTags(state) {
-      window.localStorage.setItem("recordList", JSON.stringify(state.tagList));
+      window.localStorage.setItem("tagList", JSON.stringify(state.tagList));
     },
     findTag(state, id: string) {
       return state.tagList.filter((t) => t.id === id)[0];

@@ -23,7 +23,9 @@
           <h3 class="title">{{ group.title }}</h3>
           <ol>
             <li v-for="item in group.items" :key="item.id" class="record">
-              {{ item.amount }} {{ item.createdAt }}
+              <span>{{ tagString(item.tags) }} </span> {{ item.amount }}
+              <span :style="{ marginRight: auto }">{{ item.notes }} </span>
+              {{ item.createdAt }}
             </li>
           </ol>
         </li>
@@ -43,12 +45,15 @@ import recordTypeList from "../constants/recordTypeList";
   components: { Tabs },
 })
 export default class Statistics extends Vue {
+  tagString(tags: Tag[]) {
+    return tags.length === 0 ? "无" : tags.join(",");
+  }
   get recordList() {
     return (this.$store.state as RootState).recordList;
   }
   get result() {
     const { recordList } = this;
-    type HashTableValue = { title: string; items: RecordList[] };
+    type HashTableValue = { title: string; items: RecordItem[] };
     const hashTable: { [key: string]: HashTableValue } = {};
     for (let i = 0; i < recordList.length; i++) {
       const [data, time] = recordList[i].createdAt!.split("T");
