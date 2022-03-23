@@ -1,4 +1,6 @@
 module.exports = {
+  
+  "globals": { "RootState": true },
   "globals": { "RecordItem": true },
   "globals": { "tagList": true },
   "globals": { "TagListModel": true },
