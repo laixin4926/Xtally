@@ -62,6 +62,9 @@ export default class Statistics extends Vue {
   get recordList() {
     return (this.$store.state as RootState).recordList;
   }
+  beforeCreate() {
+    this.$store.commit("fetchRecords");
+  }
   get groupedList() {
     const { recordList } = this;
     if (recordList.length === 0) {

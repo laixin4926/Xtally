@@ -10,7 +10,7 @@
       placeholder="在这里输入备注"
       @update:value="onUpdateNotes"
     />
-    <Tags />
+    <Tags @update:value="record.tags = $event" />
   </Layout>
 </template>@/components/money/FormItem.vue
 
