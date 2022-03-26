@@ -5,6 +5,7 @@ type RecordItem = {
   type: string;
   amount: number;
   createdAt?: string;
+  data: string;
 };
 type RootState = {
   createRecordError: Error | null;

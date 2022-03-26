@@ -1,12 +1,11 @@
 import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
-import { component } from "vue/types/umd";
+import VueRouter from "vue-router";
 import Money from "@/views/Money.vue";
 import Labels from "@/views/Labels.vue";
 import Statistics from "@/views/Statistics.vue";
 import NotFound from "@/views/NotFound.vue";
 import EditLabel from "@/views/EditLabel.vue";
-
+import AddTags from "@/views/AddTags.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -29,6 +28,10 @@ const routes = [
   {
     path: "/statistics",
     component: Statistics,
+  },
+  {
+    path: "/AddTags",
+    component: AddTags,
   },
   {
     path: "*",

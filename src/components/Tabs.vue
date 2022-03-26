@@ -31,7 +31,7 @@ export default class Tabs extends Vue {
   readonly value!: string;
   @Prop(String)
   classPrefix?: string;
-  @Prop({ type: String, default: " 58px" })
+  @Prop({ type: String, default: " 40px" })
   height!: string;
 
   liClass(item: DataSourceItem) {
@@ -48,24 +48,37 @@ export default class Tabs extends Vue {
 
 <style lang="scss" scoped>
 .tabs {
-  background: rgb(187, 233, 236);
+  background: #f3e1f3;
   display: flex;
   text-align: center;
-  font-size: 24px;
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
+
   &-item {
-    width: 50%;
+    width: 30%;
     /* height: 58px; */
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
     position: relative;
+    border-radius: 10px;
+
+    background: #c1dcff;
+    &.selected {
+      background: #f8f8f8;
+      &::after {
+        display: none;
+      }
+    }
     &.selected::after {
       content: "";
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 100%;
-      height: 4px;
+
       background: rgb(93, 96, 99);
     }
   }

@@ -11,6 +11,7 @@ Vue.config.productionTip = false;
 Vue.component("Layout", Layout);
 Vue.component("Icon", Icon);
 Vue.component("Daohang", Daohang);
+Vue.component("Date", Date);
 
 //record store
 

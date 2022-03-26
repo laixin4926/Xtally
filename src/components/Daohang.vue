@@ -6,7 +6,7 @@
     </router-link>
     <router-link to="/money" class="item" active-class="selected">
       <Icon class="icon" name="money" />
-      记账
+      记一笔
     </router-link>
 
     <router-link to="/statistics" class="item" active-class="selected">
@@ -23,6 +23,7 @@ export default {};
 <style lang="scss" scoped>
 @import "~@/assets/style/helper.scss";
 nav {
+  background: #f5efef;
   display: flex;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   > .item {

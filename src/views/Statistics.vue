@@ -122,7 +122,7 @@ export default class Statistics extends Vue {
   text-align: center;
 }
 ::v-deep {
-  .type-tabs-item {
+  /*   .type-tabs-item {
     background: #c4c4c4;
     &.selected {
       background: white;
@@ -130,7 +130,7 @@ export default class Statistics extends Vue {
         display: none;
       }
     }
-  }
+  } */
   .interval-tabs-item {
     height: 48px;
   }
