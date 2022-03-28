@@ -23,7 +23,7 @@
       @update:value="onUpdateInputs"
     />
 
-    <Tags />
+    <Tags :selectedTags.sync="record.tags"/>
     <!--  <Submit :value.sync="record.amount" @submit="saveRecord"> -->
 
     <Submit :value.sync="record.amount" @submit="saveRecord" />

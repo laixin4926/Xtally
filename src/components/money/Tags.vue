@@ -1,52 +1,49 @@
 <template>
   <div class="tags">
-    {{ tagList }}
-    <!-- <div class="new">
-      <button @click="createTag">新增标签</button>
-    </div> -->
     <ul class="current" v-if="tagList">
-      <li v-for="tag in tagList" :key="tag.id">
+      <li
+        v-for="tag in tagList"
+        :key="tag.id"
+        :class="{ selected: selectedTags.find(t => t.id === tag.id) }"
+        @click="toggle(tag)"
+      >
         <Icon
           class="icon"
-          :name="tag.id"
-          :class="{ selected: selectedTags.indexOf(tag) >= 0 }"
-          @click="toggle(tag)"
+          :name="tag.icon"
         >
         </Icon>
         {{ tag.name }}
       </li>
-      <li>
+      <li @click="goToCreate">
         <Icon class="icon" name="add" />
-        <router-link to="/AddTags"> 添加</router-link>
+        添加
       </li>
     </ul>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-
-import { Component, Prop } from "vue-property-decorator";
+import { Component } from "vue-property-decorator";
 import { mixins } from "vue-class-component";
 import TagHelper from "@/mixins/TagHelper";
+import {Prop} from "vue-property-decorator";
 
 @Component
 export default class Tags extends mixins(TagHelper) {
+  @Prop() selectedTags: Tag[] = [];
   get tagList() {
     return this.$store.state.tagList;
   }
-  selectedTags: string[] = [];
   created() {
     this.$store.commit("fetchTags");
   }
-  toggle(tag: string) {
-    const index = this.selectedTags.indexOf(tag);
-    if (index >= 0) {
-      this.selectedTags.splice(index, 1);
-    } else {
-      this.selectedTags.push(tag);
-    }
-    this.$emit("update:value", this.selectedTags);
+  toggle(tag: Tag) {
+    const index = this.selectedTags.findIndex(t => t.id === tag.id);
+    const newTags = index >= 0 ? this.selectedTags.filter(t => t.id !== tag.id) : [...this.selectedTags, tag];
+    this.$emit("update:selectedTags", newTags);
+  }
+  goToCreate() {
+    this.$router.push('/labels');
   }
 }
 </script>
