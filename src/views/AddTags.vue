@@ -12,11 +12,7 @@ export default {
   components: { Layout, Tags, Icon },
   data() {
     return {
-      tags: [
-        { icons: "日用品", title: "日用花销" },
-        { icons: "酒杯", title: "交际" },
-        { icons: "房子", title: "租房" },
-      ],
+
     };
   },
 };

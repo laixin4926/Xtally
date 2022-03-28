@@ -16,7 +16,9 @@ type RootState = {
 };
 type Tag = {
   id: string;
+  icon?: string;
   name: string;
+  type?: '+' | '-';
 };
 type TagListModel = {
   data: Tag[];

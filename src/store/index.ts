@@ -3,9 +3,22 @@ import createId from "@/lib/createId";
 import Vue from "vue";
 import Vuex from "vuex";
 import router from "@/router";
-const localStorageKeyName = "recordList";
 
 Vue.use(Vuex);
+
+const defaultIconList: Omit<Tag, 'id'>[] = [
+  {icon: '房子', name: '房屋', type: '-'},
+  {icon: '孩子', name: '幼儿', type: '-'},
+  {icon: '话筒2', name: '话费', type: '-'},
+  {icon: '酒杯', name: '应酬', type: '-'},
+  {icon: '口红', name: '化妆品', type: '-'},
+  {icon: '礼物', name: '礼物', type: '-'},
+  {icon: '龙头花洒', name: '洗浴', type: '-'},
+  {icon: '皮球', name: '运用', type: '-'},
+
+  {icon: '钱', name: '转账', type: '+'},
+  {icon: '钱包', name: '储蓄', type: '+'},
+]
 
 const store = new Vuex.Store({
   state: {
@@ -72,22 +85,19 @@ const store = new Vuex.Store({
       state.tagList = JSON.parse(
         window.localStorage.getItem("tagList") || "[]"
       );
-      /*  if (!state.tagList || state.tagList.length === 0) {
-        store.commit("createTag", "衣");
-        store.commit("createTag", "食");
-        store.commit("createTag", "住");
-        store.commit("createTag", "行");
-      } */
+      if (!state.tagList || state.tagList.length === 0) {
+        defaultIconList.forEach((item) => store.commit('createTag', item))
+      }
     },
-    createTag(state, name: string) {
+    createTag(state, payload: Omit<Tag, 'id'>) {
       state.createTagError = null;
       const names = state.tagList.map((item) => item.name);
-      if (names.indexOf(name) >= 0) {
+      if (names.indexOf(payload.name) >= 0) {
         state.createTagError = new Error("tag name duplicated");
         return;
       }
       const id = createId().toString();
-      state.tagList.push({ id, name: name });
+      state.tagList.push({ id, ...payload });
       store.commit("saveTags");
     },
     saveTags(state) {
@@ -99,5 +109,4 @@ const store = new Vuex.Store({
   },
 });
 
-store.commit("increment", 10);
 export default store;
