@@ -1,11 +1,9 @@
 <template>
   <Layout class-prefix="layout">
     <NumberPad :value.sync="record.amount" @submit="saveRecord" />
-
     <Tabs :data-source="recordTypeList" :value.sync="record.type" />
-
     <FormItem
-      field-name="备注"
+      field-name="备注:"
       placeholder="在这里输入备注"
       :value="record.notes"
       @update:value="onUpdateNotes"

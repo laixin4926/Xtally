@@ -46,36 +46,55 @@ export default class Tags extends mixins(TagHelper) {
 <style lang="scss" scoped>
 .tags {
   font-size: 14px;
-  padding: 16px;
+  padding: 10px;
   flex-grow: 1;
   display: flex;
   flex-direction: column-reverse;
+  margin-bottom: 20px;
+
   > .current {
     display: flex;
     flex-wrap: wrap;
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 6px;
+
     > li {
-      $bg: #d9d9d9;
+      $bg: #c1e2f8;
       background: $bg;
-      $h: 24px;
+      $h: 28px;
       line-height: $h;
-      border-radius: $h/2;
+      border-radius: 20px 10px 50px 30px;
       padding: 0 16px;
       margin-right: 12px;
       margin-top: 4px;
+      margin-bottom: 2px;
+
       &.selected {
-        background: darken($bg, 50%);
+        background: #f3bfea;
         color: white;
       }
     }
   }
   > .new {
-    padding-top: 16px;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 5px;
+
+    background: rgb(250, 248, 248);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #999;
+
     button {
       background: transparent;
       border: none;
-      color: #999;
-      border-bottom: 1px solid;
+      color: rgb(22, 21, 21);
+
       padding: 0 4px;
+      float: left;
     }
   }
 }

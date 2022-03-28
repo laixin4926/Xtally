@@ -14,8 +14,8 @@ export default class BUtton extends Vue {}
 
 <style lang ="scss" scoped>
 .button {
-  background: #767676;
-  color: white;
+  background: #c0d8f8;
+  color: rgb(8, 7, 7);
   border-radius: 4px;
   border: none;
   height: 40px;

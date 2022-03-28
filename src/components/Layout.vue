@@ -18,6 +18,8 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  background: #faeff9;
+  border: #efc7c7 1.2px solid;
 }
 .content {
   overflow: auto;

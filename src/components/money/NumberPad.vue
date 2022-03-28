@@ -73,53 +73,52 @@ export default class NumberPad extends Vue {
     @extend %innerShadow;
     font-size: 36px;
     font-family: Consolas, monospace;
-    padding: 9px 16px;
+    padding-right: 16px;
     text-align: right;
-    height: 72px;
+    color: #29314e;
+    height: 56px;
   }
   .buttons {
     @extend %clearFix;
     > button {
       width: 25%;
-      height: 64px;
+      height: 58px;
       float: left;
       background: transparent;
-      border: none;
+      border: 2px #f1f5fa double;
+
       &.ok {
-        height: 64 * 2px;
+        height: 58 * 2px;
         float: right;
       }
       &.zero {
         width: 25 * 2%;
       }
-      $bg: #f2f2f2;
-      &:nth-child(1) {
-        background: $bg;
-      }
+      $bg: #f1f5fa;
+      &:nth-child(6),
+      &:nth-child(1),
       &:nth-child(2),
-      &:nth-child(5) {
+      &:nth-child(5),
+      &:nth-child(3),
+      &:nth-child(9),
+      &:nth-child(7),
+      &:nth-child(11),
+      &:nth-child(10) {
+        border-radius: 30%;
         background: darken($bg, 4%);
       }
-      &:nth-child(3),
-      &:nth-child(6),
-      &:nth-child(9) {
+      &:nth-child(4),
+      &:nth-child(8) {
         background: darken($bg, 4 * 2%);
       }
-      &:nth-child(4),
-      &:nth-child(7),
-      &:nth-child(10) {
-        background: darken($bg, 4 * 3%);
-      }
-      &:nth-child(8),
-      &:nth-child(11),
-      &:nth-child(13) {
-        background: darken($bg, 4 * 4%);
-      }
+
+      &:nth-child(13),
       &:nth-child(14) {
-        background: darken($bg, 4 * 5%);
+        background: darken($bg, 4 * 2%);
       }
+
       &:nth-child(12) {
-        background: darken($bg, 4 * 6%);
+        background: #f3bfea;
       }
     }
   }
