@@ -1,60 +1,19 @@
 <template>
   <div class="tags">
+    {{ tagList }}
     <!-- <div class="new">
       <button @click="createTag">新增标签</button>
     </div> -->
-    <ul class="current">
-      <li
-        v-for="tag in tagList"
-        :key="tag.id"
-        :class="{ selected: selectedTags.indexOf(tag) >= 0 }"
-        @click="toggle(tag)"
-      >
+    <ul class="current" v-if="tagList">
+      <li v-for="tag in tagList" :key="tag.id">
+        <Icon
+          class="icon"
+          :name="tag.id"
+          :class="{ selected: selectedTags.indexOf(tag) >= 0 }"
+          @click="toggle(tag)"
+        >
+        </Icon>
         {{ tag.name }}
-      </li>
-      <li>
-        <Icon class="icon" name="房子" />
-        标签
-      </li>
-      <li>
-        <Icon class="icon" name="衣服" />
-        标签
-      </li>
-      <li>
-        <Icon class="icon" name="口红" />
-        标签
-      </li>
-      <li>
-        <Icon class="icon" name="酒杯" />
-        标签
-      </li>
-      <li>
-        <Icon class="icon" name="钱" />
-        标签
-      </li>
-      <li>
-        <Icon class="icon" name="钱包" />
-        标签
-      </li>
-      <li>
-        <Icon class="icon" name="日用品" />
-        标签
-      </li>
-      <li>
-        <Icon class="icon" name="小猪存钱罐" />
-        标签
-      </li>
-      <li>
-        <Icon class="icon" name="饮食" />
-        标签
-      </li>
-      <li>
-        <Icon class="icon" name="投资" />
-        标签
-      </li>
-      <li>
-        <Icon class="icon" name="礼物" />
-        标签
       </li>
       <li>
         <Icon class="icon" name="add" />
@@ -67,13 +26,13 @@
 <script lang="ts">
 import Vue from "vue";
 
-import { Component } from "vue-property-decorator";
+import { Component, Prop } from "vue-property-decorator";
 import { mixins } from "vue-class-component";
 import TagHelper from "@/mixins/TagHelper";
 
 @Component
 export default class Tags extends mixins(TagHelper) {
-  /*  get tagList() {
+  get tagList() {
     return this.$store.state.tagList;
   }
   selectedTags: string[] = [];
@@ -88,7 +47,7 @@ export default class Tags extends mixins(TagHelper) {
       this.selectedTags.push(tag);
     }
     this.$emit("update:value", this.selectedTags);
-  } */
+  }
 }
 </script>
 <style lang="scss" scoped>

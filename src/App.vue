@@ -5,6 +5,15 @@
   </div>
 </template>
 
+<script>
+export default {
+  mounted() {
+    this.$store.commit("fetchTags");
+    this.$store.commit("fetchRecords");
+  },
+};
+</script>
+
 <style lang="scss">
 @import "~@/assets/style/reset.scss";
 @import "~@/assets/style/helper.scss";

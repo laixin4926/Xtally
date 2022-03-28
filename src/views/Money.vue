@@ -23,7 +23,7 @@
       @update:value="onUpdateInputs"
     />
 
-    <Tags @update:value="record.tags = $event" />
+    <Tags />
     <!--  <Submit :value.sync="record.amount" @submit="saveRecord"> -->
 
     <Submit :value.sync="record.amount" @submit="saveRecord" />
