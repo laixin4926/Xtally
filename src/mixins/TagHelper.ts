@@ -1,13 +1,22 @@
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
+import { Dialog, Field } from "vant";
+import NewTags from "@/components/NewTags.vue";
+
+Vue.use(Field);
+Vue.use(Dialog);
 
 const map: { [key: string]: string } = {
   "tag name duplicated ": "标签名重复了",
 };
-@Component
+
+@Component({
+  components: { NewTags },
+})
 export class TagHelper extends Vue {
   createTag() {
-    const name = window.prompt("请输入标签名");
+    const name = this;
+    /* const name = window.prompt("请输入标签名"); */
     if (!name) {
       return window.alert("标签名不能为空");
     }

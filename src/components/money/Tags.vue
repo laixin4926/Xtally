@@ -1,7 +1,13 @@
-<template>
+<template >
   <div class="tags">
+    <NewTags
+      :visible="dialogVisible"
+      @confirm="onConfirm"
+      @cancel="dialogVisible = false"
+    />
+
     <div class="new">
-      <button @click="createTag">新增标签</button>
+      <button @click="dialogVisible = true">新增标签</button>
     </div>
     <ul class="current">
       <li
@@ -18,17 +24,26 @@
 
 <script lang="ts">
 import Vue from "vue";
-
 import { Component } from "vue-property-decorator";
-import { mixins } from "vue-class-component";
 import TagHelper from "@/mixins/TagHelper";
+import NewTags from "@/components/NewTags.vue";
+import { Dialog, Field } from "vant";
+Vue.use(Field);
+Vue.use(Dialog);
 
-@Component
-export default class Tags extends mixins(TagHelper) {
+const map: { [key: string]: string } = {
+  "tag name duplicated ": "标签名重复了",
+};
+@Component({
+  components: { NewTags },
+})
+export default class Tags extends Vue {
+  dialogVisible: boolean = false;
+  selectedTags: string[] = [];
+
   get tagList() {
     return this.$store.state.tagList;
   }
-  selectedTags: string[] = [];
   created() {
     this.$store.commit("fetchTags");
   }
@@ -40,6 +55,19 @@ export default class Tags extends mixins(TagHelper) {
       this.selectedTags.push(tag);
     }
     this.$emit("update:value", this.selectedTags);
+  }
+  onConfirm(value: string) {
+    this.dialogVisible = false;
+    console.log("新标签：" + value);
+    // 和之前的逻辑一样即可
+    const name = value;
+    if (!name) {
+      return window.alert("标签名不能为空");
+    }
+    this.$store.commit("createTag", name);
+    if (this.$store.state.createTagError) {
+      window.alert(map[this.$store.state.createTagError.message] || "名字重复");
+    }
   }
 }
 </script>
