@@ -58,8 +58,7 @@ export default class Tags extends Vue {
   }
   onConfirm(value: string) {
     this.dialogVisible = false;
-    console.log("新标签：" + value);
-    // 和之前的逻辑一样即可
+
     const name = value;
     if (!name) {
       return window.alert("标签名不能为空");

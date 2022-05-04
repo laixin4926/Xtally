@@ -1,6 +1,12 @@
 <template>
   <Layout>
     <div class="tags">
+      <NewTags
+        :visible="dialogVisible"
+        @confirm="onConfirm"
+        @cancel="dialogVisible = false"
+      />
+
       <router-link
         class="tag"
         v-for="tag in tags"
@@ -12,7 +18,7 @@
       </router-link>
     </div>
     <div class="createTag-wrapper">
-      <Button class="createTag" @click="createTag">新建标签</Button>
+      <Button class="createTag" @click="dialogVisible = true">新建标签</Button>
     </div>
   </Layout>
 </template>
@@ -23,16 +29,35 @@ import { Component } from "vue-property-decorator";
 import Button from "@/components/Button.vue";
 import { mixins } from "vue-class-component";
 import TagHelper from "@/mixins/TagHelper";
+import NewTags from "@/components/NewTags.vue";
+import { Dialog, Field } from "vant";
+Vue.use(Field);
+Vue.use(Dialog);
 
+const map: { [key: string]: string } = {
+  "tag name duplicated ": "标签名重复了",
+};
 @Component({
-  components: { Button },
+  components: { Button, NewTags },
 })
-export default class Labels extends mixins(TagHelper) {
+export default class Labels extends Vue {
+  dialogVisible: boolean = false;
   get tags() {
     return this.$store.state.tagList;
   }
   beforeCreate() {
     this.$store.commit("fetchTags");
+  }
+  onConfirm(value: string) {
+    this.dialogVisible = false;
+    const name = value;
+    if (!name) {
+      return window.alert("标签名不能为空");
+    }
+    this.$store.commit("createTag", name);
+    if (this.$store.state.createTagError) {
+      window.alert(map[this.$store.state.createTagError.message] || "名字重复");
+    }
   }
 }
 </script>
